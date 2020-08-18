@@ -2,7 +2,10 @@ body {
     background-color: rgb(214, 171, 209);
     height: 300px;
   }
-  
+  .jumbotron {
+    background-image: url("../images/jumbotronBG.jpg");
+    background-size: cover;
+  }
   .navbar {
     max-height: 50px;
   }
