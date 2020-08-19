@@ -39,7 +39,6 @@ body {
   .navbar-brand:hover {
   color: rgb(0, 0, 0);
   }
-  
   a {
     color: rgb(255, 255, 255);
     font-size: 15px;
@@ -50,40 +49,11 @@ body {
     max-width: 100%;
     max-height: 100%;
   }
-
   .active, .panel:hover {
     border-color:rgb(103, 0, 129);
     border-style: solid;
     
   }
-  .vizualization {
-    width:40%;
-    height:50%;
-  }
-  
-  .title {
-    color: rgb(0, 0, 0);
-    font-family: cochin;
-    font-weight: bolder;
-    padding-top: 10px;
-  }
-  
-  p {
-  color: rgb(255, 255, 255);
-  font-family: 'segoe ui';
-  font-size: 16px;
-  }
-  
-  .box {
-    margin-top: 50px;
-    margin-bottom: 60px;
-    padding: 15px 25px 15px;
-    color: #ffffff;
-    background-color: rgb(255, 255, 255);
-    
-  }
-  
-
   footer {
 
     background-color: rgb(5, 5, 5);
@@ -107,13 +77,22 @@ body {
     background-color: #000000;
     }
     .navbar {
+      background-color: rgb(5, 5, 5);
+      color: rgb(255, 255, 255);
       max-height: none;
       padding: inherit;
     }
     .navbar div {
       margin: inherit;
-      background-color: rgb(255,255,255);
+      background-color: rgb(5, 5, 5));
     }
+    .custom-toggler.navbar-toggler { 
+      background-color: rgb(5, 5, 5);
+      border-color: rgb(103, 0, 129); 
+  } 
+  .custom-toggler .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(103,0,129)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+     }
     .navbar-brand {
       padding: 10px;
     }
