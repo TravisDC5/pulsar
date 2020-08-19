@@ -1,24 +1,27 @@
 body {
-    background-color: rgb(214, 171, 209);
+    background-color: rgb(19, 19, 19);
     height: 300px;
   }
   .jumbotron {
     background-image: url("../images/jumbotronBG.jpg");
     background-size: cover;
+    font-weight: bold;
+    color: rgb(255, 255, 255);
   }
   .navbar {
     max-height: 50px;
+    background-color: rgb(5, 5, 5);
   }
   .navigation .navbar-brand {
     color: rgb(255, 255, 255);
     margin-left: 0px;
     padding: inherit;
     font-weight: bold;
-    background-color: rgb(252, 65, 174);
+    background-color: rgb(5, 5, 5);
     font-family: cochin;
   }
   .navbar {
-    background-color: rgb(252, 65, 174);
+    background-color: rgb(5, 5, 5);
     font-size: 25px; 
   }
   .active, .dropdown-menu .dropdown-item:active a:hover {
@@ -68,7 +71,7 @@ body {
   }
   
   p {
-  color: rgb(49, 49, 49);
+  color: rgb(255, 255, 255);
   font-family: 'segoe ui';
   font-size: 16px;
   }
@@ -85,10 +88,10 @@ body {
 
   footer {
 
-    background-color: rgb(27, 27, 27);
+    background-color: rgb(5, 5, 5);
     border-top-style: solid;
     border-top-width: 5px;
-    border-top-color: rgb(252, 65, 174);
+    border-top-color: rgb(103, 0, 129);
     color: rgb(255, 255, 255);
     min-height: 55px;
     font-family: Arial, Tahoma, sans-serif;
