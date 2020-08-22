@@ -10,6 +10,10 @@ def home():
 def data():
     return render_template("data.html")
 
+@app.route("/credits")
+def credits():
+    return render_template("credits.html")
+
 if __name__ == "__main__":
     app.run()
 
