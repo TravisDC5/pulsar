@@ -1,0 +1,116 @@
+body {
+    background-color: rgb(19, 19, 19);
+    height: 300px;
+  }
+  .jumbotron {
+    background-image: url("../images/jumbotronBG.jpg");
+    background-size: cover;
+    font-weight: bold;
+    color: rgb(255, 255, 255);
+  }
+  .navigation .navbar-brand {
+    color: rgb(255, 255, 255);
+    margin-left: 0px;
+    padding: inherit;
+    font-weight: bold;
+    background-color: rgb(5, 5, 5);
+    font-family: cochin;
+  }
+  .navbar {
+    background-color: rgb(5, 5, 5);
+    font-size: 25px; 
+  }
+  .active, .dropdown-menu .dropdown-item:active a:hover {
+    background-color: rgb(255, 1, 1);
+  }
+  .dropdown-item {
+    color: rgb(255, 255, 255);
+  }
+  .dropdown .dropdown-menu .dropdown-item:active, .dropdown .dropdown-menu .dropdown-item:hover {
+    background-color: rgb(103, 0, 129);
+  }
+  .dropdown-menu {
+    background-color: rgb(36, 36, 36);
+  }
+  .nav-link:hover {
+    background-color:rgb(103, 0, 129);
+   }
+  
+  .navbar-brand:hover {
+  color: rgb(0, 0, 0);
+  }
+  h1 {
+    color: rgb(255, 255, 255);
+    margin-top: 25px;
+  }
+  p {
+    color: rgb(255, 255, 255);
+    font-size: 15px;
+    margin-top: 15px;
+  }
+  a {
+    color: rgb(255, 255, 255);
+    font-size: 15px;
+  }
+  img{
+    width:auto;
+    height:auto;
+    max-width: 100%;
+    max-height: 100%;
+  }
+  .active, .panel:hover {
+    border-color:rgb(103, 0, 129);
+    border-style: solid;
+    
+  }
+  footer {
+
+    background-color: rgb(5, 5, 5);
+    border-top-style: solid;
+    border-top-width: 5px;
+    border-top-color: rgb(103, 0, 129);
+    color: rgb(255, 255, 255);
+    min-height: 55px;
+    font-family: Arial, Tahoma, sans-serif;
+    font-size: 15px;
+    text-align: center;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    padding-top: 15px;
+    }
+  
+  @media(max-width: 600px) {
+    .navbar-expand-lg {
+    background-color: #000000;
+    }
+    .navbar {
+      background-color: rgb(5, 5, 5);
+      color: rgb(255, 255, 255);
+      max-height: none;
+      padding: inherit;
+    }
+    .navbar div {
+      margin: inherit;
+      background-color: rgb(5, 5, 5);
+    }
+    .custom-toggler.navbar-toggler { 
+      background-color: rgb(5, 5, 5);
+      border-color: rgb(103, 0, 129); 
+  } 
+  .custom-toggler .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(103,0,129)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+     }
+    .navbar-brand {
+      padding: 10px;
+    }
+    button{
+      margin-right: 30px;
+    }
+   
+    button:focus {
+      outline: 1px dotted;
+      outline: auto 5px;
+    }
+  }
