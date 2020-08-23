@@ -52,7 +52,15 @@ body {
     color: rgb(255, 255, 255);
     font-size: 15px;
   }
-  img{
+  th {
+    color: rgb(255, 255, 255);
+    font-size: 15px;
+  }
+  td {
+    color: rgb(255, 255, 255);
+    font-size: 12px;
+  }
+  img {
     width:auto;
     height:auto;
     max-width: 100%;
@@ -61,7 +69,21 @@ body {
   .active, .panel:hover {
     border-color:rgb(103, 0, 129);
     border-style: solid;
-    
+  }
+  .card {
+    margin: 15px;
+  }
+  .card-img-top {
+    width: 30%;
+    height: 15vw;
+    object-fit: cover;
+    color: rgb(36, 36, 36);
+}
+  .card-title {
+    color: rgb(255, 255, 255);
+  }
+  .card-body {
+    background-color: rgb(36, 36, 36);
   }
   footer {
 
