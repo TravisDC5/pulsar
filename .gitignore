@@ -1,3 +1,6 @@
 .ipynb_checkpoints
 trashcan
 story.txt
+__pycache__
+data
+copyjob.ipynb
