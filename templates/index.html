@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
         integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <!-- <link rel="stylesheet" type="text/css" href="styles/style.css"> -->
-    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/style.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/style.css') }}">
 
     <title>Pulsar</title>
 </head>
@@ -19,8 +19,9 @@
     <div class="navigation">
         <nav class="navbar navbar-expand-sm">
             <a class="navbar-brand" style="background-color: rgb(103, 0, 129);" href="/">HOME</a>
-            <button class="navbar-toggler ml-auto custom-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
-                aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler ml-auto custom-toggler" type="button" data-toggle="collapse"
+                data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false"
+                aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNavDropdown">
@@ -47,20 +48,49 @@
     <div class="jumbotron jumbotron-fluid">
         <div class="container">
             <h1 class="display-4">Pulsar</h1>
-            <p class="lead">Some text here as a very brief description of what were doing.</p>
+            <p class="lead">A celestial object, thought to be a rapidly rotating neutron star, that emits regular pulses
+                of radio waves and other electromagnetic radiation at rates of up to one thousand pulses per second.</p>
         </div>
     </div>
     <div class="container">
         <div class="row">
-            <div class="col-lg-6">
-                <p>Some Text or Data Here</p>
+            <div class="card text-white bg-dark mb-3" style="max-width: 800px;">
+                <div class="row no-gutters">
+                    <div class="col-md-4">
+                        <div class="card-body">
+                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
+                                additional content. This content is a little bit longer.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-8">
+                        <img src="{{ url_for('static',filename='images/Pulsar2-600.jpg') }}" class="card-img-main"
+                            alt="Card image cap">
+                    </div>
+                </div>
             </div>
-            <div class="col-lg-6">
-                <p>Some Text or Data here</p>
+        </div>
+        <div class="row">
+            <div class="card text-white bg-dark mb-3" style="max-width: 800px;">
+                <div class="row no-gutters">
+                    <div class="col-md-8">
+                        <img src="{{ url_for('static',filename='images/Pulsar1-600.jpg') }}" class="card-img-main"
+                            alt="Card image cap">
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card-body">
+                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
+                                additional content. This content is a little bit longer.</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
     <footer> Pulsar 2020 - David, Jon, and Travis </footer>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
