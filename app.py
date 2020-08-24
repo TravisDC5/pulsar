@@ -14,6 +14,15 @@ def data():
 def credits():
     return render_template("credits.html")
 
+@app.route("/charts")
+def charts():
+    return render_template("charts.html")
+
+@app.route("/randomforest")
+def randomforest():
+    return render_template("randomforest.html")
+
+
 if __name__ == "__main__":
     app.run()
 
