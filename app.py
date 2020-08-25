@@ -1,5 +1,6 @@
 import os
-from flask import Flask, render_template, json, current_app, app
+from flask import Flask, render_template, json, current_app, app, request, \
+    url_for, redirect
 
 # static/data/test_data.json
 # dataFile = os.path.join(app.static_folder, 'data', 'test_data.json')
@@ -31,8 +32,13 @@ def randomforest():
 
 @app.route("/ocr")
 def ocr():
-    # return render_template("ocr.html", data=data)
-    return render_template("ocr.html")
+     return render_template('ocr.html',
+        data=[{'name':'red'}, {'name':'green'}, {'name':'blue'}])
+
+@app.route("/model" , methods=['GET', 'POST'])
+def model():
+    select = request.form.get('comp_select')
+    return(str(select)) # just to see what select is
 
 if __name__ == "__main__":
     app.run()
