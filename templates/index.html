@@ -34,12 +34,13 @@
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                             <a class="dropdown-item" href="/charts">Charts</a>
                             <a class="dropdown-item" href="/randomforest">Random Forest</a>
+                            <a class="dropdown-item" href="/ocr">Optical Character Recognition</a>
                             <a class="dropdown-item" href="/data">Data</a>
                             <a class="dropdown-item" href="/credits">Credits</a>
                         </div>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/data">DATA</a>
+                        <a class="nav-link" href="/credits">CREDITS</a>
                     </li>
                 </ul>
             </div>
@@ -53,48 +54,77 @@
         </div>
     </div>
     <div class="container">
-        <div class="row">
-            <div class="card text-white bg-dark mb-3" style="max-width: 800px;">
-                <div class="row no-gutters">
-                    <div class="col-md-4">
-                        <div class="card-body">
-                            <p class="card-text">
-                                <b>Why are scientists interested in Pulsars?</b><br>
+        <div class="row justify-content-lg-center">
+            <div class="row">
+                <div class="card text-white bg-dark mb-3" style="max-width: 992px;">
+                    <div class="row no-gutters">
+                        <div class="col-md-4">
+                            <div class="card-body">
+                                <p class="card-text">
+                                    <b>Why are scientists interested in Pulsars?</b><br>
                                 <ul>
                                     <li>Extreme states of matter</li>
                                     <li>Search for planets beyond our solar system</li>
                                     <li>Measure cosmic distances</li>
                                     <li>Forecast cosmic events with gravitational waves</li>
-                                    <ul><li>Detect supermassive black hole collisions</li></ul>
+                                    <ul>
+                                        <li>Detect supermassive black hole collisions</li>
+                                    </ul>
                                 </ul>
-                            </p>
+                                </p>
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-md-8">
-                        <img src="{{ url_for('static',filename='images/Pulsar2-600.jpg') }}" class="card-img-main"
-                            alt="Card image cap">
+                        <div class="col-md-8">
+                            <img src="{{ url_for('static',filename='images/Pulsar2-600.jpg') }}" class="card-img-main"
+                                alt="Card image cap">
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="row">
-            <div class="card text-white bg-dark mb-3" style="max-width: 800px;">
-                <div class="row no-gutters">
-                    <div class="col-md-8">
-                        <img src="https://lh3.googleusercontent.com/proxy/ugI8hMp6XoSeBUQRcm8Gv-ZzAbXVKECBuPnKD9Gzla4D47cKa8uBWJP-hROyZbjccX21jLOAy2QmaNHziQju_B4GlSkQmMlTC9PhcBwb5x_9rkI9sFHk1Ze6P0j1y_t2NqAws6ThYnG5k1hQ9zWj-g" class="card-img-main"
-                            alt="Card image cap">
-                    </div>
-                    <div class="col-md-4">
-                        <div class="card-body">
-                            <p class="card-text">
-                                <b>First Pulsar Discovery</b><br>
+            <div class="row">
+                <div class="card text-white bg-dark mb-3" style="max-width: 992px;">
+                    <div class="row no-gutters">
+                        <div class="col-md-8">
+                            <img src="{{ url_for('static',filename='images/jocelyn.jpg') }}" class="card-img-main" alt="Card image cap">
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card-body">
+                                <p class="card-text">
+                                    <b>First Pulsar Discovery</b><br>
                                 <ul>
                                     <li>Jocyelyn Bell and Anthony Hewish in 1967</li>
                                     <li>Jocelyn Bell noticed small pulses of radiation at a specific position</li>
-                                    <ul><li>Thought it might be another civilization</li>
-                                    <li>Named the pulses LGM1</li>
-                                    <ul><li>Little Green Men 1</li></ul></ul>
+                                    <ul>
+                                        <li>Thought it might be another civilization</li>
+                                        <li>Named the pulses LGM1</li>
+                                        <ul>
+                                            <li>Little Green Men 1</li>
+                                        </ul>
+                                    </ul>
                                 </ul>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="card text-white bg-dark mb-3" style="max-width: 992px;">
+                        <img class="card-img-main" src="{{ url_for('static',filename='images/LargeArray-600.jpg') }}"
+                            alt="Card image cap">
+                        <div class="card-body">
+                            <p class="card-text">
+                                <b>First discovered as radio sources, they are now observed using optical</b><br>
+                            <ul>
+                                <li>X-Ray Telescopes</li>
+                                <li>Gamma Ray Telescopes</li>
+                                <li>Images in FITS (flexible image transport system) format</li>
+                                <ul>
+                                    <li>Multi-Dimensional Arrays</li>
+                                    <li>2D and 3D with an ASCII header</li>
+                                </ul>
+                            </ul>
                             </p>
                         </div>
                     </div>
