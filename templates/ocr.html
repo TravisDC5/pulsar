@@ -53,32 +53,27 @@
             <div class="col-lg-2">
                 <div class="well">
                     <h5>Test Image ID:</h5>
-                    <!-- <select id="selDataser" >
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                    </select> -->
+
                     <form class="form-inline" method="POST" action="{{ url_for('model') }}">
                         <div class="form-group">
                           <div class="input-group">
                                   <select name="comp_select" class="selectpicker form-control">
                                     {% for o in data %}
-                                    <option value="{{ o.name }}">{{ o.name }}</option>
+                                    <option value="{{ o.id }}">{{ o.id }}</option>
                                     {% endfor %}
                                   </select>
                           </div>
-                          <button type="submit" class="btn btn-default">Go</button>
+                          <button type="submit" class="btn btn-dark">Go</button>
                         </div>
                       </form>
                 </div>
             </div>
             <div class="col-lg-8">
                 <div class="panel panel-dark">
-                    <div class="panel-heading">
-                        <h5 class="panel-title">Outout Data:</h5>
-                      </div>
-                      <div id="outputData" class="panel-body"></div>
+                    <div class="panel">
+                        <h5 class="panel-title">Description:</h5>
+                        <p>{{ select }}</p>
+                    </div>
                 </div>
             </div>
         </div>
