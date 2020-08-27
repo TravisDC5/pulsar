@@ -52,7 +52,7 @@
         <div class="row">
             <div class="col-lg-2">
                 <div class="well">
-                    <h5>Test Image ID:</h5>
+                    <h5>Test Value ID:</h5>
 
                     <form class="form-inline" method="POST" action="{{ url_for('retrieve') }}">
                         <div class="form-group">
@@ -73,6 +73,7 @@
                     <div class="panel">
                         <h5 class="panel-title">Description:</h5>
                             <p>Test Value ID : {{ model.selection }}</p>
+                            <p>Classification : {{ model.class }}</p>
                     </div>
                 </div>
             </div>

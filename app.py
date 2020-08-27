@@ -1,6 +1,8 @@
 import pandas as pd
+import pickle
 from flask import Flask, render_template, json, current_app, app, request, url_for, redirect
 from flask_pymongo import PyMongo
+
 
 app = Flask(__name__)
 
@@ -52,11 +54,29 @@ def ocr():
 def retrieve():
     select = request.form.get('comp_select')
     
+    data = pd.read_csv('modelmaker/HTRU_2.csv')
+    data.columns = ['1','2','3','4','5','6','7','8','9']
+    data['10'] = data.index
+   
+    
+    spam = data[(data['10'] >= 4084) & (data['10'] <= 4103)] 
+    spam2 = data[(data['9'] >= 4084) & (data['9'] <= 4103)] 
+    
+    temp = spam['10'] == int(select)
+    
+    temp2 = spam[temp]
+    temp3 = temp2["9"].values[0]
+    cla = ""
+    if temp3 == 0:
+        cla = "Not a Pulsar"
+    else:
+        cla = "Is a Pulsar"
+
     model = mongo.db.model
-    model_data = {'selection' : select}
+    model_data = {'selection' : select, 'class': cla}
     model.replace_one({},model_data, upsert=True)
 
-    # return(model_data)
+    
     return redirect("/rfmodel", code=302)
 
 if __name__ == "__main__":
