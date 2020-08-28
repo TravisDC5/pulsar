@@ -48,22 +48,22 @@ def ocr():
         id_data.append(d1)
 
     return render_template('rfmodel.html', data=id_data, model=model)
-    
+
 
 @app.route("/retrieve" , methods=['GET', 'POST'])
 def retrieve():
     select = request.form.get('comp_select')
-    
+
     data = pd.read_csv('modelmaker/HTRU_2.csv')
     data.columns = ['1','2','3','4','5','6','7','8','9']
     data['10'] = data.index
-   
-    
-    spam = data[(data['10'] >= 4084) & (data['10'] <= 4103)] 
-    spam2 = data[(data['9'] >= 4084) & (data['9'] <= 4103)] 
-    
+
+
+    spam = data[(data['10'] >= 4084) & (data['10'] <= 4103)]
+    spam2 = data[(data['9'] >= 4084) & (data['9'] <= 4103)]
+
     temp = spam['10'] == int(select)
-    
+
     temp2 = spam[temp]
     temp3 = temp2["9"].values[0]
     cla = ""
@@ -72,21 +72,29 @@ def retrieve():
     else:
         cla = "Is a Pulsar"
 
-    # pickle_file = "modelmaker/RFC_model_v1_12_3_175.h5"
+    pickle_file = "modelmaker/RFC_model_v1_12_3_175.h5"
 
-    # with open(pickle_file, 'rb') as file:  
-    #     Pickled_RF_Model = pickle.load(file)
+    with open(pickle_file, 'rb') as file:
+        Pickled_RF_Model = pickle.load(file)
 
-    
+    X = temp2.iloc[:,:-2].values
+    y = temp2.iloc[:,-2].values
+
+    y_pred = Pickled_RF_Model.predict(X)
+
+    if y_pred[0] == 0:
+        model_output = "Not a Pulsar"
+    else:
+        model_output = "Is a Pulsar"
+    print(model_output)
 
 
     model = mongo.db.model
-    model_data = {'selection' : select, 'class': cla}
+    model_data = {'selection' : select, 'class_acc': cla, 'class_pre': model_output}
     model.replace_one({},model_data, upsert=True)
 
-    
+
     return redirect("/rfmodel", code=302)
 
 if __name__ == "__main__":
     app.run()
-
