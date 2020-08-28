@@ -72,6 +72,14 @@ def retrieve():
     else:
         cla = "Is a Pulsar"
 
+    # pickle_file = "modelmaker/RFC_model_v1_12_3_175.h5"
+
+    # with open(pickle_file, 'rb') as file:  
+    #     Pickled_RF_Model = pickle.load(file)
+
+    
+
+
     model = mongo.db.model
     model_data = {'selection' : select, 'class': cla}
     model.replace_one({},model_data, upsert=True)
