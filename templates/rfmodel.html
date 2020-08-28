@@ -69,12 +69,12 @@
                 </div>
             </div>
             <div class="col-lg-8">
-                <div class="panel panel-dark">
-                    <div class="panel">
-                        <h5 class="panel-title">Description:</h5>
-                            <p>Test Value ID : {{ model.selection }}</p>
-                            <p>Classification (Actual) : {{ model.class_acc }}</p>
-                            <p>Classification (Predicted) : {{ model.class_pre }}</p>
+                <div class="card text-white bg-dark mb-3" style="width: 24rem;">
+                    <div class="card-body-model">
+                        <h5 class="card-title-model">Description:</h5>
+                        <p>Test Value ID : {{ model.selection }}</p>
+                        <p>Classification (Actual) : {{ model.class_acc }}</p>
+                        <p>Classification (Predicted) : {{ model.class_pre }}</p>
                     </div>
                 </div>
             </div>
