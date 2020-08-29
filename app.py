@@ -27,7 +27,7 @@ def charts():
     return render_template("charts.html")
 
 @app.route("/nnet")
-def charts():
+def nnet():
     return render_template("neuralNet.html")
 
 @app.route("/roc")
