@@ -26,9 +26,13 @@ def credits():
 def charts():
     return render_template("charts.html")
 
-@app.route("/randomforest")
+@app.route("/nnet")
+def charts():
+    return render_template("neuralNet.html")
+
+@app.route("/roc")
 def randomforest():
-    return render_template("randomforest.html")
+    return render_template("rocChart.html")
 
 @app.route("/rfmodel")
 def ocr():
