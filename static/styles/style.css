@@ -136,6 +136,10 @@ body {
   label {
     color: rgb(255, 255, 255);
   }
+  form {
+    margin-left: 3px;
+    color: rgb(255, 255, 255);
+  }
   footer {
 
     background-color: rgb(5, 5, 5);
