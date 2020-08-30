@@ -47,9 +47,18 @@ body {
     color: rgb(255, 255, 255);
     margin-top: 25px;
   }
+  h4 {
+    color: rgb(255, 255, 255);
+    margin-top: 25px;
+    margin-left: 15px;
+  }
   h3 {
     color: rgb(255, 255, 255);
     margin-top: 25px;
+  }
+  .pp {
+    color: rgb(255, 255, 255);
+    font-size: 15px;
   }
   p {
     color: rgb(255, 255, 255);
@@ -74,6 +83,13 @@ body {
     max-width: 100%;
     max-height: 100%;
   }
+  button {
+    color: rgb(255, 255, 255);
+  }
+  .panel {
+    background-color: rgb(65, 65, 65);
+    margin-left: 5px;
+  }
   .active, .panel:hover {
     border-color:rgb(103, 0, 129);
     border-style: solid;
@@ -97,9 +113,28 @@ body {
 }
   .card-title {
     color: rgb(255, 255, 255);
+    margin-left: 5px;
+  }
+  .card-text {
+    font-size: 20px;
+    margin-left: 15px;
+  }
+  .card-title-model {
+    color: rgb(255, 255, 255);
+    margin-top: 10px;
+  }
+  .card-body-dat {
+    background-color: rgb(36, 36, 36);
+  }
+  .card-body-model {
+    margin-top: 0px;
+    margin-left: 5px;
   }
   .card-body-credit {
     background-color: rgb(36, 36, 36);
+  }
+  label {
+    color: rgb(255, 255, 255);
   }
   footer {
 
