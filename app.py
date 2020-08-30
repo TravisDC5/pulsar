@@ -157,6 +157,7 @@ def retrieve2():
     # Run Data through Model
     dataArray = np.array([fnameValue, age, sibling, pets, originValueAsc, cityValueAsc, hours, pnumber] , dtype=float)
     print(dataArray)
+    
     pickle_file = "modelmaker/RFC_model_v1_12_3_175.h5"
 
     with open(pickle_file, 'rb') as file:
@@ -164,7 +165,7 @@ def retrieve2():
     
     X = dataArray
     X = X.reshape(-1,1)
-    
+    print(X)
     y_pred = Pickled_RF_Model.predict(X)
 
     if y_pred[0] == 0:
