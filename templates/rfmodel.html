@@ -52,7 +52,7 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-lg-2">
+            <div class="col-lg-3">
                 <div class="well">
                     <h5>Test Value ID:</h5>
 
@@ -71,7 +71,7 @@
                 </div>
             </div>
             <div class="col-lg-8">
-                <div class="card text-white bg-dark mb-3" style="width: 24rem;">
+                <div class="card text-white bg-dark mb-3" style="width: 28rem;">
                     <div class="card-body-model">
                         <h5 class="card-title-model">Description:</h5>
                         <p>Test Value ID : {{ model.selection }}</p>
@@ -83,13 +83,67 @@
 
         </div>
         <div class="row">
-            <div class="col-lg-6">
-            
+            <div class="col-lg-12">
+                <h1>Check If You're a Pulsar!</h1>
             </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-3">
+
+                    <form action="{{ url_for('retrieve2') }}" method="post">
+                    <label for="fname">First Name:</label><br>
+                    <input type="text" id="fname" name="fname" value=""><br>
+                    
+                    <label for="lname">Age:</label><br>
+                    <input type="text" id="age" name="age" value=""><br>
+
+                    <label for="fname">Number of Siblings:</label><br>
+                    <input type="text" id="sibling" name="sibling" value=""><br>
+
+                    <label for="fname">Number of Pets:</label><br>
+                    <input type="text" id="pets" name="pets" value=""><br>
+
+                    <label for="fname">City of Origin:</label><br>
+                    <input type="text" id="origin" name="origin" value=""><br>
+
+                    <label for="fname">Current City:</label><br>
+                    <input type="text" id="city" name="city" value=""><br>
+
+                    <label for="fname">Hours worked each day:</label><br>
+                    <input type="text" id="hours" name="hours" value=""><br>
+
+                    <label for="fname">Pick a Number (1 -100):</label><br>
+                    <input type="text" id="pnumber" name="pnumber" value=""><br><br>
+                    
             
+                    <button type="submit" value="Submit" class="btn btn-dark">Check</button>
+                  </form>
+                  
+            </div>
+            <div class="col-lg-8">
+                <div class="card text-white bg-dark mb-3" style="width: 28rem;">
+                    <div class="card-body-model">
+                        <h5 class="card-title-model">Description:</h5>
+                        <p>First Name: {{ model.firstName }}; Ascii Name Average: {{ model.nameValueAVG }}</p>
+                        <p>Age: {{ model.personAge }}</p>
+                        <p>Number of Siblings: {{ model.sibCount }}</p>
+                        <p>Number of Pets: {{ model.numPets}}</p>
+                        <p>Origin of Birth: {{ model.origin }}; Ascii Birth City Average: {{ model.originValueAsc }}</p>
+                        <p>Current City: {{ model.currCity }}; Ascii Current City Average: {{ model.cityValueAsc }}</p>
+                        <p>Hours Worked each Day: {{ model.labHours }}</p>
+                        <p>Favorite Number: {{ model.favNumber }}</p><br>
+                        <p>You are {{ model.humanPulsar }}!</p>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
     </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
     <footer> Pulsar 2020 - David, Jon, and Travis </footer>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
