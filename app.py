@@ -39,7 +39,7 @@ def randomforest():
 def ocr():
 
     model = mongo.db.model.find_one()
-    
+
 
     data_df = pd.read_csv('modelmaker/HTRU_2.csv')
     data_df.columns = ['1','2','3','4','5','6','7','8','9']
@@ -105,7 +105,7 @@ def retrieve():
 @app.route("/retrieve2" , methods=['GET', 'POST'])
 def retrieve2():
     model = mongo.db.model.find_one()
-    
+
     fname = request.form.get('fname')
     age = request.form.get('age')
     sibling = request.form.get('sibling')
@@ -127,7 +127,7 @@ def retrieve2():
     valSum = sum(ascValue)
 
     fnameValue = round(valSum/charCount,2)
-    
+
     # Get Ascii values for origin
     originValue = origin
     ascValue2 = []
@@ -153,18 +153,18 @@ def retrieve2():
     valSum3 = sum(ascValue3)
 
     cityValueAsc = round(valSum3/charCount3,2)
-    
+
     # Run Data through Model
     dataArray = np.array([fnameValue, age, sibling, pets, originValueAsc, cityValueAsc, hours, pnumber] , dtype=float)
     print(dataArray)
-    
+
     pickle_file = "modelmaker/RFC_model_v1_12_3_175.h5"
 
     with open(pickle_file, 'rb') as file:
         Pickled_RF_Model = pickle.load(file)
-    
+
     X = dataArray
-    X = X.reshape(-1,1)
+    X = X.reshape(-1,8)
     print(X)
     y_pred = Pickled_RF_Model.predict(X)
 
@@ -173,10 +173,10 @@ def retrieve2():
     else:
         model_output2 = "a Pulsar"
 
-    
+
     model = mongo.db.model
     model_data = {'firstName' : fname,
-                  'personAge': age, 
+                  'personAge': age,
                   'nameValueAVG': fnameValue,
                   'sibCount': sibling,
                   'numPets': pets,
