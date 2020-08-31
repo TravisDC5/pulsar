@@ -48,41 +48,33 @@
     <div class="container">
         <div row="row">
             <div class="col-lg-12">
-                <h1>Jons Page</h1>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="card text-white bg-dark mb-3" style="max-width: responsive;">
-                    <img class="card-img-main" src="{{ url_for('static',filename='images/LargeArray-600.jpg') }}"
-                        alt="Card image cap">
-                    <div class="card-body">
-                        <p class="card-text">
-
-                        </p>
-                    </div>
-                </div>
+                <h1>Model experimentation Page</h1>
             </div>
         </div>
         <div class="row">
             <div class="col-lg-6">
                 <div class="card text-white bg-dark mb-3" style="max-width: responsive;">
-                    <img class="card-img-main" src="{{ url_for('static',filename='images/LargeArray-600.jpg') }}"
+                    <img class="card-img-main" src="{{ url_for('static',filename='images/LR_output.PNG') }}"
                         alt="Card image cap">
                     <div class="card-body">
                         <p class="card-text">
-
+                            <ul><li>Preprocessed data came from UCI</li>
+                              <li>Logistic Regression achieved an accuracy of 98%!</li>
+                              <li>Total Positive rate (TPR) was only about 90%</li>
+                            </ul>
                         </p>
                     </div>
                 </div>
             </div>
             <div class="col-lg-6">
                 <div class="card text-white bg-dark mb-3" style="max-width: responsive;">
-                    <img class="card-img-main" src="{{ url_for('static',filename='images/LargeArray-600.jpg') }}"
+                    <img class="card-img-main" src="{{ url_for('static',filename='images/data_dist.png') }}"
                         alt="Card image cap">
                     <div class="card-body">
                         <p class="card-text">
-
+                          <ul><li>Gaussian Discriminate Analysis (GDA) is a great model for data that is continuous and normally distributed</li>
+                            <li>Maintained ~98% accuracy and improved TPR to 92%</li>
+                          </ul>
                         </p>
                     </div>
                 </div>
@@ -91,11 +83,18 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="card text-white bg-dark mb-3" style="max-width: responsive;">
-                    <img class="card-img-main" src="{{ url_for('static',filename='images/LargeArray-600.jpg') }}"
+                    <img class="card-img-main" src="{{ url_for('static',filename='images/small_pulsar_400.png') }}"
                         alt="Card image cap">
+                    <!-- <img class="card-img-main_2" src="{{ url_for('static',filename='images/pulsar_0001.jpg') }}"
+                        alt="Card image cap">
+                    <img class="card-img-main_2" src="{{ url_for('static',filename='images/pulsar_0006.jpg') }}"
+                        alt="Card image cap"> -->
                     <div class="card-body">
                         <p class="card-text">
-
+                          <ul><li>A second dataset from the same raw data was transformed into “images”, similar to the CIFAR-10 dataset</li>
+                            <li>Several attempts were made to work with the dataset</li>
+                            <li>Ultimately the best model had >99% accuracy but only about 90% TPR</li>
+                          </ul>
                         </p>
                     </div>
                 </div>
