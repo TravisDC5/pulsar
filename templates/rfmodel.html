@@ -90,7 +90,7 @@
         </div>
         <div class="row">
             <div class="col-lg-3">
-                <div class="card text-white bg-dark mb-3" style="max-width: responsive;">
+                <div class="card text-white bg-dark mb-3" style="max-width: responsive + 5px;">
                     <div class="card-body-human">
                     <form class="form" action="{{ url_for('retrieve2') }}" method="post">
                     <label for="fname">First Name:</label><br>
@@ -114,7 +114,7 @@
                     <label for="fname">Hours worked each day:</label><br>
                     <input type="text" id="hours" name="hours" value=""><br>
 
-                    <label for="fname">Pick a Number (1 -100):</label><br>
+                    <label for="fname">Pick a Number:</label><br>
                     <input type="text" id="pnumber" name="pnumber" value=""><br><br>
                     </div>
                 </div> 
@@ -134,7 +134,7 @@
                         <p>Current City: {{ model.currCity }}; Ascii Current City Average: {{ model.cityValueAsc }}</p>
                         <p>Hours Worked each Day: {{ model.labHours }}</p>
                         <p>Favorite Number: {{ model.favNumber }}</p><br>
-                        <p>You are {{ model.humanPulsar }}!</p>
+                        <h4>You are {{ model.humanPulsar }}!</h4>
                     </div>
                 </div>
             </div>
