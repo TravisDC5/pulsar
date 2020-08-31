@@ -296,10 +296,10 @@
           </strip>
         </edge>
         <edge name='top'>
-          <strip size='31'>
+          <strip size='2147483647'>
             <card type='columns' />
           </strip>
-          <strip size='31'>
+          <strip size='2147483647'>
             <card type='rows' />
           </strip>
           <strip size='31'>

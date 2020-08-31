@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/style.css') }}">
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+    <title>Random Forest Model</title>
+</head>
+
+<body>
+    <div class="navigation">
+        <nav class="navbar navbar-expand-sm">
+            <a class="navbar-brand" style="background-color: rgb(103, 0, 129);" href="/">HOME</a>
+            <button class="navbar-toggler ml-auto custom-toggler" type="button" data-toggle="collapse"
+                data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            NAVIGATION
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            <a class="dropdown-item" href="/charts">Charts</a>
+                            <a class="dropdown-item" href="/nnet">Neural Network</a>
+                            <a class="dropdown-item" href="/rfmodel">Random Forest Model</a>
+                            <a class="dropdown-item" href="/roc">ROC Chart</a>
+                            <a class="dropdown-item" href="/data">Data</a>
+                            <a class="dropdown-item" href="/credits">Credits</a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/credits">CREDITS</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <h1>Random Forest Model</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-3">
+                <div class="well">
+                    <h5>Test Value ID:</h5>
+
+                    <form class="form-inline" method="POST" action="{{ url_for('retrieve') }}">
+                        <div class="form-group">
+                            <div class="input-group">
+                                <select name="comp_select" class="selectpicker form-control">
+                                    {% for o in data %}
+                                    <option value="{{ o.id }}">{{ o.id }}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                            <button type="submit" class="btn btn-dark">Go</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="col-lg-8">
+                <div class="card text-white bg-dark mb-3" style="width: 28rem;">
+                    <div class="card-body-model">
+                        <h5 class="card-title-model">Description:</h5>
+                        <p>Test Value ID : {{ model.selection }}</p>
+                        <p>Classification (Actual) : {{ model.class_acc }}</p>
+                        <p>Classification (Predicted) : {{ model.class_pre }}</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <h1>Check If You're a Pulsar!</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-3">
+                <div class="card text-white bg-dark mb-3" style="max-width: responsive;">
+                    <div class="card-body-human">
+                    <form class="form" action="{{ url_for('retrieve2') }}" method="post">
+                    <label for="fname">First Name:</label><br>
+                    <input type="text" id="fname" name="fname" value=""><br>
+                    
+                    <label for="lname">Age:</label><br>
+                    <input type="text" id="age" name="age" value=""><br>
+
+                    <label for="fname">Number of Siblings:</label><br>
+                    <input type="text" id="sibling" name="sibling" value=""><br>
+
+                    <label for="fname">Number of Pets:</label><br>
+                    <input type="text" id="pets" name="pets" value=""><br>
+
+                    <label for="fname">City of Origin:</label><br>
+                    <input type="text" id="origin" name="origin" value=""><br>
+
+                    <label for="fname">Current City:</label><br>
+                    <input type="text" id="city" name="city" value=""><br>
+
+                    <label for="fname">Hours worked each day:</label><br>
+                    <input type="text" id="hours" name="hours" value=""><br>
+
+                    <label for="fname">Pick a Number (1 -100):</label><br>
+                    <input type="text" id="pnumber" name="pnumber" value=""><br><br>
+                    </div>
+                </div> 
+                    <button type="submit" value="Submit" class="btn btn-dark">Check</button>
+                  </form>
+                
+            </div>
+            <div class="col-lg-8">
+                <div class="card text-white bg-dark mb-3" style="width: 28rem;">
+                    <div class="card-body-model">
+                        <h5 class="card-title-model">Description:</h5>
+                        <p>First Name: {{ model.firstName }}; Ascii Name Average: {{ model.nameValueAVG }}</p>
+                        <p>Age: {{ model.personAge }}</p>
+                        <p>Number of Siblings: {{ model.sibCount }}</p>
+                        <p>Number of Pets: {{ model.numPets}}</p>
+                        <p>Origin of Birth: {{ model.origin }}; Ascii Birth City Average: {{ model.originValueAsc }}</p>
+                        <p>Current City: {{ model.currCity }}; Ascii Current City Average: {{ model.cityValueAsc }}</p>
+                        <p>Hours Worked each Day: {{ model.labHours }}</p>
+                        <p>Favorite Number: {{ model.favNumber }}</p><br>
+                        <p>You are {{ model.humanPulsar }}!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <footer> Pulsar 2020 - David, Jon, and Travis </footer>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+        crossorigin="anonymous"></script>
+
+</body>
+
+</html>
