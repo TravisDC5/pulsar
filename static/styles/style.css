@@ -107,7 +107,7 @@ body {
   
   .card-img-top {
     width: 30%;
-    height: 15vw;
+    height: 12vw;
     object-fit: cover;
     color: rgb(36, 36, 36);
 }
@@ -116,7 +116,7 @@ body {
     margin-left: 5px;
   }
   .card-text {
-    font-size: 20px;
+    font-size: 16px;
     margin-left: 15px;
   }
   .card-title-model {
