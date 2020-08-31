@@ -105,92 +105,94 @@ def retrieve():
 @app.route("/retrieve2" , methods=['GET', 'POST'])
 def retrieve2():
     model = mongo.db.model.find_one()
+    try:
+        fname = request.form.get('fname')
+        age = request.form.get('age')
+        sibling = request.form.get('sibling')
+        pets = request.form.get('pets')
+        origin = request.form.get('origin')
+        city = request.form.get('city')
+        hours = request.form.get('hours')
+        pnumber = request.form.get('pnumber')
 
-    fname = request.form.get('fname')
-    age = request.form.get('age')
-    sibling = request.form.get('sibling')
-    pets = request.form.get('pets')
-    origin = request.form.get('origin')
-    city = request.form.get('city')
-    hours = request.form.get('hours')
-    pnumber = request.form.get('pnumber')
+        # Get Ascii values for name
+        nameValue = fname
+        ascValue = []
 
-    # Get Ascii values for name
-    nameValue = fname
-    ascValue = []
+        for name in nameValue:
+            for ch in name:
+                ascValue.append(ord(ch))
 
-    for name in nameValue:
-        for ch in name:
-            ascValue.append(ord(ch))
+        charCount = len(ascValue)
+        valSum = sum(ascValue)
 
-    charCount = len(ascValue)
-    valSum = sum(ascValue)
+        fnameValue = round(valSum/charCount,2)
 
-    fnameValue = round(valSum/charCount,2)
+        # Get Ascii values for origin
+        originValue = origin
+        ascValue2 = []
 
-    # Get Ascii values for origin
-    originValue = origin
-    ascValue2 = []
+        for name in originValue:
+            for ch in name:
+                ascValue2.append(ord(ch))
 
-    for name in originValue:
-        for ch in name:
-            ascValue2.append(ord(ch))
+        charCount2 = len(ascValue2)
+        valSum2 = sum(ascValue2)
 
-    charCount2 = len(ascValue2)
-    valSum2 = sum(ascValue2)
+        originValueAsc = round(valSum2/charCount2,2)
 
-    originValueAsc = round(valSum2/charCount2,2)
+        # Get Ascii values for currenct city
+        cityValue = city
+        ascValue3 = []
 
-    # Get Ascii values for currenct city
-    cityValue = city
-    ascValue3 = []
+        for name in cityValue:
+            for ch in name:
+                ascValue3.append(ord(ch))
 
-    for name in cityValue:
-        for ch in name:
-            ascValue3.append(ord(ch))
+        charCount3 = len(ascValue3)
+        valSum3 = sum(ascValue3)
 
-    charCount3 = len(ascValue3)
-    valSum3 = sum(ascValue3)
+        cityValueAsc = round(valSum3/charCount3,2)
 
-    cityValueAsc = round(valSum3/charCount3,2)
-
-    # Run Data through Model
-    dataArray = np.array([fnameValue, age, sibling, pets, originValueAsc, cityValueAsc, hours, pnumber] , dtype=float)
+        # Run Data through Model
+        dataArray = np.array([fnameValue, age, sibling, pets, originValueAsc, cityValueAsc, hours, pnumber] , dtype=float)
     
     
-    pickle_file = "modelmaker/RFC_model_v1_12_3_175.h5"
+        pickle_file = "modelmaker/RFC_model_v1_12_3_175.h5"
 
-    with open(pickle_file, 'rb') as file:
-        Pickled_RF_Model = pickle.load(file)
+        with open(pickle_file, 'rb') as file:
+            Pickled_RF_Model = pickle.load(file)
 
-    X = dataArray
-    X = X.reshape(-1,8)
+        X = dataArray
+        X = X.reshape(-1,8)
     
-    y_pred = Pickled_RF_Model.predict(X)
+        y_pred = Pickled_RF_Model.predict(X)
 
-    if y_pred[0] == 0:
-        model_output2 = "Not a Pulsar"
-    else:
-        model_output2 = "a Pulsar"
+        if y_pred[0] == 0:
+            model_output2 = "Not a Pulsar"
+        else:
+            model_output2 = "a Pulsar"
 
 
-    model = mongo.db.model
-    model_data = {'firstName' : fname,
-                  'personAge': age,
-                  'nameValueAVG': fnameValue,
-                  'sibCount': sibling,
-                  'numPets': pets,
-                  'origin': origin,
-                  'originValueAsc': originValueAsc,
-                  'currCity': city,
-                  'cityValueAsc': cityValueAsc,
-                  'labHours': hours,
-                  'favNumber': pnumber,
-                  'humanPulsar': model_output2
-                  }
-    model.replace_one({},model_data, upsert=True)
+        model = mongo.db.model
+        model_data = {'firstName' : fname,
+                      'personAge': age,
+                      'nameValueAVG': fnameValue,
+                      'sibCount': sibling,
+                      'numPets': pets,
+                      'origin': origin,
+                      'originValueAsc': originValueAsc,
+                      'currCity': city,
+                      'cityValueAsc': cityValueAsc,
+                      'labHours': hours,
+                      'favNumber': pnumber,
+                      'humanPulsar': model_output2
+                    }
+        model.replace_one({},model_data, upsert=True)
 
-    return redirect("/rfmodel", code=302)
+        return redirect("/rfmodel", code=302)
+    except Exception as e:
+        return render_template("500.html", error = str(e))
 
 if __name__ == "__main__":
     app.run()
