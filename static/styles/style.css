@@ -136,8 +136,8 @@ body {
   label {
     color: rgb(255, 255, 255);
   }
-  form {
-    margin-left: 3px;
+  .form {
+    margin-left: 10px;
     color: rgb(255, 255, 255);
   }
   footer {
